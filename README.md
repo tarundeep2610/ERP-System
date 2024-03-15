@@ -70,13 +70,21 @@ To install and run the project locally, follow these steps:
 ## Screenshots
 
 # Dashboard
-![Dashboard](./src/assets/Dashboard.png)
+![Dashboard](./src/assets/Dashboard1.png)
+
+![Dashboard](./src/assets/Dashboard2.png)
 
 # Products Page
 ![Products Management](./src/assets/Products.png)
 
+# Add Product Form
+![Products Management](./src/assets/Add_Product_Form.png)
+
 # Orders Page
 ![Orders Management](./src/assets/Orders.png)
+
+#Add Order Form
+![Orders Management](./src/assets/Add_Order_Form.png)
 
 # Orders Calendar Page
 ![Orders Calendar View](./src/assets/Orders_Calendar.png)

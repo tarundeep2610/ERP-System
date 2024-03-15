@@ -48,7 +48,9 @@ const Modal = ({
               setIsOpen((prev) => !prev);
             }}
             className="absolute ml-auto w-fit top-1 right-3 p-1 hover:bg-main bg-transparent cursor-pointer rounded-md transition-all duration-300 shadow-md"
-          ></div>
+          >
+            X
+          </div>
         </div>
         {/* Modal content */}
         <div className="overflow-scroll p-2">{children}</div>
@@ -56,7 +58,7 @@ const Modal = ({
         {closeButton && (
           <div className="w-24 absolute bottom-4 right-4">
             <button
-              onClick={(e) => {
+              onClick={() => {
                 setIsOpen((prev) => !prev);
               }}
             >

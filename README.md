@@ -69,10 +69,14 @@ To install and run the project locally, follow these steps:
 
 ## Screenshots
 
+# Dashboard
 ![Dashboard](./src/assets/Dashboard.png)
 
+# Products Page
 ![Products Management](./src/assets/Products.png)
 
+# Orders Page
 ![Orders Management](./src/assets/Orders.png)
 
-![Orders Calendar View](./src/assets/Orders Calendar.png)
+# Orders Calendar Page
+![Orders Calendar View](./src/assets/Orders_Calendar.png)

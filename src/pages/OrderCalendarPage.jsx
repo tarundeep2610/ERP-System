@@ -3,16 +3,22 @@ import Calendar from "react-calendar";
 import { AppContext } from "../context/AppContext";
 import "react-calendar/dist/Calendar.css";
 
+// Component for displaying orders on a calendar
 const OrderCalendarPage = () => {
+  // State to manage the selected date on the calendar
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  // Accessing orders data from context
   const { orders, setOrders } = useContext(AppContext);
 
+  // Filtering orders based on the selected date
   const filteredOrders = orders.filter(
     (order) =>
       new Date(order.orderDate).toLocaleDateString() ===
       selectedDate.toLocaleDateString()
   );
 
+  // Function to handle date change on calendar
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -23,6 +29,7 @@ const OrderCalendarPage = () => {
         Orders Calendar
       </h1>
       <div className="flex flex-col md:flex-row justify-center items-center md:justify-normal md:items-baseline">
+        {/* Calendar component */}
         <div className="bg-white p-2 md:p-5 rounded-lg shadow-md max-w-full  flex justify-center items-center w-fit mb-5 md:mb-0">
           <Calendar
             onChange={handleDateChange}
@@ -31,11 +38,13 @@ const OrderCalendarPage = () => {
             className="mb-5"
           />
         </div>
+        {/* Orders list for the selected date */}
         <div className="bg-white p-5 rounded-lg shadow-md min-w-full md:min-w-80 w-fit flex flex-col md:ml-10">
           <h3 className="text-lg font-semibold">
             Orders on {selectedDate.toLocaleDateString()}
           </h3>
           <ul>
+            {/* Displaying filtered orders */}
             {filteredOrders.length > 0 ? (
               filteredOrders.map((order) => (
                 <li
@@ -46,6 +55,7 @@ const OrderCalendarPage = () => {
                     <p className="font-semibold">{order.orderId}</p>
                     <p className="text-gray-500">{order.customerName}</p>
                   </div>
+                  {/* Displaying order status with appropriate color */}
                   <p
                     className={`text-gray-500 ${
                       order.status !== "Pending"
@@ -58,6 +68,7 @@ const OrderCalendarPage = () => {
                 </li>
               ))
             ) : (
+              // Displaying message when no orders are available for the selected date
               <li className="border-b border-gray-200 py-3 flex justify-between items-center">
                 No orders Available
               </li>

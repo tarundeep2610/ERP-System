@@ -1,8 +1,11 @@
 import React, { createContext, useState } from "react";
 
+// Creating a context for the application state
 export const AppContext = createContext();
 
+// Provider component to wrap the application and provide state to components
 const AppProvider = ({ children }) => {
+  // State for products and orders
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -78,8 +81,10 @@ const AppProvider = ({ children }) => {
     },
   ]);
 
+  // Providing products and orders state to the context
   return (
     <AppContext.Provider value={{ products, setProducts, orders, setOrders }}>
+      {/* Wrapping children components with the context provider */}
       {children}
     </AppContext.Provider>
   );

@@ -3,9 +3,12 @@ import { Line, Bar } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import { Chart } from "chart.js/auto";
 
+// Registering CategoryScale for use in charts
 Chart.register(CategoryScale);
 
+// Dashboard component displaying various metrics and charts
 export const Dashboard = () => {
+  // Sample data for various metrics and charts
   const revenueTrendData = [1000, 1500, 2000, 1800, 2200, 2500];
   const retentionRate = 85;
   const avgOrderValue = 150;
@@ -48,11 +51,10 @@ export const Dashboard = () => {
   return (
     <div className="container mx-auto p-5">
       <h1 className="text-3xl font-bold mb-5">Dashboard</h1>
-      {/* <div className="container mx-auto p-5"> */}
 
-      {/* </div> */}
-
+      {/* Grid layout for different sections */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Overview section */}
         <div className="bg-white p-5 rounded-lg shadow-md md:col-span-2 lg:col-span-3">
           <p className="mb-4 text-lg font-semibold">
             Welcome to the ERP System! This system is designed to streamline
@@ -74,11 +76,14 @@ export const Dashboard = () => {
           </ul>
         </div>
 
+        {/* Revenue Trends chart */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-3">Revenue Trends</h2>
           <Line data={revenueTrendChartData} />
         </div>
-        <div className="bg-white p-5 rounded-lg shadow-md flex   flex-col">
+
+        {/* Retention Rate and Average Order Value section */}
+        <div className="bg-white p-5 rounded-lg shadow-md flex flex-col">
           <div>
             <h2 className="text-xl font-semibold mb-3">
               Customer Retention Rate
@@ -92,10 +97,14 @@ export const Dashboard = () => {
             <p className="mb-3">Average Order Value: ${avgOrderValue}</p>
           </div>
         </div>
+
+        {/* Inventory Aging chart */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-3">Inventory Aging</h2>
           <Bar data={inventoryAgingChartData} />
         </div>
+
+        {/* Employee Performance Metrics */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-3">
             Employee Performance Metrics
@@ -115,6 +124,8 @@ export const Dashboard = () => {
             ))}
           </ul>
         </div>
+
+        {/* Products section */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <div className="mb-3">
             <Link
@@ -128,13 +139,12 @@ export const Dashboard = () => {
             <span className="font-semibold">Total number of products: </span> 10
           </p>
           <p className="">
-            {" "}
-            <span className="font-semibold">
-              Total number of categories:{" "}
-            </span>{" "}
+            <span className="font-semibold">Total number of categories: </span>{" "}
             5
           </p>
         </div>
+
+        {/* Orders section */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <div className="mb-3">
             <Link
@@ -145,11 +155,9 @@ export const Dashboard = () => {
             </Link>
           </div>
           <p className=" mb-1">
-            {" "}
             <span className="font-semibold">Total number of orders: </span>: 20
           </p>
           <p className="">
-            {" "}
             <span className="font-semibold">Total revenue: </span>: $1000
           </p>
         </div>

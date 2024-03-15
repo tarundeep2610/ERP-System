@@ -1,19 +1,26 @@
-// src/components/Products.js
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import Modal from "../Components/Modal";
 import { useForm } from "react-hook-form";
 import CommonForm from "../Components/CommonForm";
 
+// Component for managing products
 const Products = () => {
+  // Accessing products data and setProducts function from context
   const { products, setProducts } = useContext(AppContext);
+
+  // State to manage modal visibility
   const [isOpen, setIsOpen] = useState(false);
+
+  // Initial form values
   const initialValues = {
     name: "",
     category: "",
     price: "",
     stockQuantity: "",
   };
+
+  // State to manage modal content and header
   const [modalBody, setModalBody] = useState(<></>);
   const [modalHead, setModalHead] = useState(
     <>
@@ -21,6 +28,7 @@ const Products = () => {
     </>
   );
 
+  // Form data for products
   const productsForm = [
     {
       label: "Name",
@@ -56,6 +64,7 @@ const Products = () => {
     },
   ];
 
+  // Function to set modal content and handle form submission
   const setModal = (onClickFn, defaultValues) => {
     reset(defaultValues);
     setModalBody(
@@ -73,16 +82,19 @@ const Products = () => {
     );
   };
 
+  // Function to delete a product
   const handleDelete = (productId) => {
     setProducts(products.filter((product) => product.id !== productId));
   };
 
+  // Function to add a new product
   const handleAdd = (data) => {
     setProducts([...products, { id: products.length + 1, ...data }]);
     closeModal();
     reset();
   };
 
+  // Function to edit an existing product
   const handleEdit = (data, id) => {
     setProducts((prev) =>
       prev.map((product) => {
@@ -96,17 +108,21 @@ const Products = () => {
     closeModal();
     reset();
   };
+
+  // Function to open modal for adding or editing a product
   const openModal = (initialData) => {
     setIsOpen(true);
 
     setModalHead(initialData ? "Edit product" : "Add product");
   };
 
+  // Function to close the modal
   const closeModal = () => {
     setIsOpen(false);
     reset();
   };
 
+  // React Hook Form methods for form validation
   const {
     register,
     handleSubmit,
@@ -116,6 +132,7 @@ const Products = () => {
 
   return (
     <div>
+      {/* Modal component */}
       <Modal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -125,6 +142,7 @@ const Products = () => {
         {modalBody}
       </Modal>
 
+      {/* Header and button for managing products */}
       <div className="flex sm:flex-row flex-col p-2 pt-4 items-center sm:justify-between">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">
           Products Management
@@ -142,6 +160,8 @@ const Products = () => {
           </button>
         </div>
       </div>
+
+      {/* Table for displaying products */}
       <div className="overflow-x-auto sm:mt-4">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -150,7 +170,7 @@ const Products = () => {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                product ID
+                Product ID
               </th>
               <th
                 scope="col"
@@ -185,6 +205,7 @@ const Products = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
+            {/* Displaying products data */}
             {products.map((product) => (
               <tr key={product.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{product.id}</td>
@@ -197,6 +218,7 @@ const Products = () => {
                   {product.stockQuantity}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
+                  {/* Buttons for editing and deleting products */}
                   <button
                     className="text-blue-500 hover:text-blue-700 mr-2"
                     onClick={() => {

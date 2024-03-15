@@ -7,43 +7,47 @@ The goal of this project is to create a simplified interface for an ERP (Enterpr
 - **Dashboard**: Provides an overview of the system's features.
 - **Products Management**: Allows for the management of product listings.
 - **Orders Management**: Facilitates viewing and handling orders.
-
-Additionally, an optional feature has been implemented:
-
 - **Orders Calendar View**: A calendar interface displaying orders based on their expected delivery dates.
 
 ## Objectives
 
-- Develop a user-friendly interface for managing key aspects of a business.
-- Utilize React for building modular components and managing application state.
-- Implement navigation between different sections of the ERP system using React Router.
-- Create a responsive design suitable for both desktop and mobile devices.
+- Developed a user-friendly interface for managing key aspects of a business.
+- Utilized React for building modular components and managing application state.
+- Implemented navigation between different sections of the ERP system using React Router.
+- Created a responsive design suitable for both desktop and mobile devices.
 
-## Assignment Details
+##  Project Details
 
 ### Dashboard:
 
-- Display a summary of key metrics or features (e.g., total number of products, orders).
-- Include links or buttons for quick navigation to the Products and Orders management pages.
+- Displays a summary of key metrics or features (e.g., total number of products, orders).
+- Included buttons for quick navigation to the Products and Orders management pages on the Navbar.
 
 ### Products Management:
 
-- Present a list of products with details such as name, category, price, and stock quantity, using mock data.
-- Enable functionalities to add, edit, and delete products.
+- Presents a list of products with details such as name, category, price, and stock quantity, using mock data.
+- Enabled functionalities to add, edit, and delete products.
 
 ### Orders Management:
 
-- Show a list of orders, including details like order ID, customer name, order date, and status, using mock data.
-- (Optional) Allow viewing of order details, updating the order status, and deletion of orders.
+- Shows a list of orders, including details like order ID, customer name, order date, and status, using mock data.
+- Allow viewing of order details, updating the order status, and deletion of orders.
 
 ### Orders Calendar View (Optional):
 
-- Implement a calendar view that displays orders on their expected delivery dates.
+- Implemented a calendar view that displays orders on their expected delivery dates.
 - Provide the ability to click on a date to view all orders due for delivery that day.
 
 ## Technology Stack
 
-Although you are free to choose any technology or framework of your preference to build the front-end of this application, we suggest using React as this is the library we mostly use to build our web apps.
+This project is built using the following technologies and frameworks:
+
+- **React**: Used for building modular components and managing application state.
+- **React Router**: Implemented for navigation between different sections of the ERP system.
+- **React Calendar**: Utilized to implement the calendar interface for displaying orders based on their expected delivery dates.
+- **React Chart.js 2**: Employed for visualizing data in charts, such as revenue trends and inventory aging.
+- **React Hook Form**: Used for form management, including adding, editing, and deleting products in the Products Management page and managing orders in the Orders Management page.
+- **Tailwind CSS**: Utilized for styling the user interface and ensuring responsiveness across different devices.
 
 ## Installation
 
@@ -63,6 +67,12 @@ To install and run the project locally, follow these steps:
 - React Chartjs 2
 - React Calendar
 
-## License
+## Screenshots
 
-This project is licensed under the [MIT License](LICENSE).
+![Dashboard](./src/assets/Dashboard.png)
+
+![Products Management](./src/assets/Products.png)
+
+![Orders Management](./src/assets/Orders.png)
+
+![Orders Calendar View](./src/assets/Orders Calendar.png)

@@ -1,8 +1,6 @@
 import React from "react";
 
-const CommonForm = ({ data, errors, register, defaultValues }) => {
-  console.log(defaultValues);
-  console.log(data);
+const CommonForm = ({ data, errors, register }) => {
   return (
     <div>
       <form className="grid grid-cols-1 gap-2 px-2">
@@ -19,7 +17,6 @@ const CommonForm = ({ data, errors, register, defaultValues }) => {
                   className={
                     "p-2 block w-full border-b-2 py-1.5 text-black-900 sm:text-sm sm:leading-6 rounded-md bg-opacity-50  font-poppins outline-none border-gray-400  shadow-lg focus:shadow-indigo-500/30"
                   }
-                  // value={defaultValues?.[item?.name]}
                 >
                   <option selected value={""} disabled>
                     Select
@@ -44,15 +41,11 @@ const CommonForm = ({ data, errors, register, defaultValues }) => {
                   type="date"
                   id="start"
                   name={item.name}
-                  // value={new Date().getDate()}
-                  // value="2024-03-15"
                   {...register(item.name, {
                     required: item.required ? "This Field is required" : false,
                     ...item.props,
                   })}
                   className="p-2 block w-full border-b-2 py-1.5 text-black-900 sm:text-sm sm:leading-6 rounded-md bg-opacity-50  font-poppins outline-none border-gray-400  shadow-lg focus:shadow-indigo-500/30"
-                  // min="2018-01-01"
-                  // max="2018-12-31"
                 />
               </>
             );
@@ -67,7 +60,6 @@ const CommonForm = ({ data, errors, register, defaultValues }) => {
                     ...item.props,
                   })}
                   className="p-2 block w-full border-b-2 py-1.5 text-black-900 sm:text-sm sm:leading-6 rounded-md bg-opacity-50  font-poppins outline-none border-gray-400  shadow-lg focus:shadow-indigo-500/30"
-                  // value={defaultValues?.[item?.name]}
                 />
               </>
             );
@@ -86,7 +78,6 @@ const CommonForm = ({ data, errors, register, defaultValues }) => {
                   placeholder={item.placeholder ? item.placeholder : ""}
                   className="p-2 block w-full border-b-2 py-1.5 text-black-900 sm:text-sm sm:leading-6 rounded-md bg-opacity-50  font-poppins outline-none border-gray-400  shadow-lg focus:shadow-indigo-500/30"
                   {...item.props}
-                  // value={defaultValues?.[item?.name]}
                 />
                 {console.log(
                   errors,

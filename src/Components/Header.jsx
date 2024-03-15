@@ -1,38 +1,3 @@
-// // src/components/Header.js
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const Header = () => {
-//   return (
-//     <header className="bg-gray-800 text-white p-4">
-//       <div className="container mx-auto flex sm:flex-row flex-col justify-between items-center">
-//         <div className="text-3xl font-bold">ERP System</div>
-// <nav>
-//   <ul className="flex text-base space-x-4 mt-2 sm:mt-2">
-//     <li>
-//       <Link to="/" className="hover:text-gray-300">
-//         Dashboard
-//       </Link>
-//     </li>
-//     <li>
-//       <Link to="/products" className="hover:text-gray-300">
-//         Products
-//       </Link>
-//     </li>
-//     <li>
-//       <Link to="/orders" className="hover:text-gray-300">
-//         Orders
-//       </Link>
-//     </li>
-//   </ul>
-// </nav>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";

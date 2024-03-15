@@ -1,44 +1,3 @@
-// import React, { useContext, useState } from "react";
-// import Calendar from "react-calendar";
-// import { AppContext } from "../context/AppContext";
-
-// const OrderCalendarPage = () => {
-//   const [selectedDate, setSelectedDate] = useState(new Date());
-
-//   // Dummy data for orders on selected date
-//   const { orders, setOrders } = useContext(AppContext);
-
-//   // Event handler for calendar date selection
-//   const handleDateChange = (date) => {
-//     setSelectedDate(date);
-//   };
-
-//   return (
-//     <div className="container mx-auto p-5">
-//       <h1 className="text-3xl font-bold mb-5">Orders Calendar</h1>
-//       <div className="bg-white p-5 rounded-lg shadow-md">
-//         <Calendar
-//           onChange={handleDateChange}
-//           value={selectedDate}
-//           calendarType="US"
-//         />
-//         <h3 className="text-lg font-semibold mt-5">
-//           Orders on {selectedDate.toLocaleDateString()}
-//         </h3>
-//         <ul>
-//           {orders.map((order) => (
-//             <li key={order.id}>
-//               {order.orderId} - {order.customerName} - {order.status}
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default OrderCalendarPage;
-
 import React, { useContext, useState } from "react";
 import Calendar from "react-calendar";
 import { AppContext } from "../context/AppContext";
@@ -46,7 +5,6 @@ import "react-calendar/dist/Calendar.css";
 
 const OrderCalendarPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  // Dummy data for orders on selected date
   const { orders, setOrders } = useContext(AppContext);
 
   const filteredOrders = orders.filter(
@@ -55,17 +13,17 @@ const OrderCalendarPage = () => {
       selectedDate.toLocaleDateString()
   );
 
-  // Event handler for calendar date selection
   const handleDateChange = (date) => {
-    // setSelectedDate(formatDate(date));
     setSelectedDate(date);
   };
 
   return (
-    <div className="container mx-auto p-5">
-      <h1 className="text-3xl font-bold mb-5 ml-2">Orders Calendar</h1>
-      <div className="flex">
-        <div className="bg-white p-5 rounded-lg shadow-md w-fit">
+    <div className="container mx-auto p-2 md:p-4 lg:p-5">
+      <h1 className="text-2xl md:text-3xl font-bold mb-5 ml-2">
+        Orders Calendar
+      </h1>
+      <div className="flex flex-col md:flex-row justify-center items-center md:justify-normal md:items-baseline">
+        <div className="bg-white p-2 md:p-5 rounded-lg shadow-md max-w-full  flex justify-center items-center w-fit mb-5 md:mb-0">
           <Calendar
             onChange={handleDateChange}
             value={selectedDate}
@@ -73,7 +31,7 @@ const OrderCalendarPage = () => {
             className="mb-5"
           />
         </div>
-        <div className="bg-white p-5 rounded-lg shadow-md min-w-80 w-fit flex flex-col ml-10">
+        <div className="bg-white p-5 rounded-lg shadow-md min-w-full md:min-w-80 w-fit flex flex-col md:ml-10">
           <h3 className="text-lg font-semibold">
             Orders on {selectedDate.toLocaleDateString()}
           </h3>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { useForm } from "react-hook-form";
 import Modal from "../Components/Modal";
@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 const Orders = () => {
   const { orders, setOrders } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [initialValues, setInitialValues] = useState({
+  const initialValues = {
     orderId: "",
     customerName: "",
     orderDate: "",
     status: "",
-  });
+  };
   const [modalBody, setModalBody] = useState(<></>);
   const [modalHead, setModalHead] = useState(
     <>
@@ -101,7 +101,6 @@ const Orders = () => {
     setIsOpen(true);
 
     setModalHead(initialData ? "Edit Order" : "Add Order");
-    // setInitialValues(initialData || {});
   };
 
   const closeModal = () => {
@@ -112,7 +111,6 @@ const Orders = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     reset,
     formState: { errors },
   } = useForm({});
@@ -226,9 +224,6 @@ const Orders = () => {
           </tbody>
         </table>
       </div>
-      {/* <div className="w-full">
-        
-      </div> */}
     </div>
   );
 };

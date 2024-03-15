@@ -1,5 +1,5 @@
 // src/components/Products.js
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import Modal from "../Components/Modal";
 import { useForm } from "react-hook-form";
@@ -8,12 +8,12 @@ import CommonForm from "../Components/CommonForm";
 const Products = () => {
   const { products, setProducts } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [initialValues, setInitialValues] = useState({
+  const initialValues = {
     name: "",
     category: "",
     price: "",
     stockQuantity: "",
-  });
+  };
   const [modalBody, setModalBody] = useState(<></>);
   const [modalHead, setModalHead] = useState(
     <>
@@ -100,7 +100,6 @@ const Products = () => {
     setIsOpen(true);
 
     setModalHead(initialData ? "Edit product" : "Add product");
-    // setInitialValues(initialData || {});
   };
 
   const closeModal = () => {
@@ -111,8 +110,6 @@ const Products = () => {
   const {
     register,
     handleSubmit,
-    setValue,
-    getValues,
     reset,
     formState: { errors },
   } = useForm({});
